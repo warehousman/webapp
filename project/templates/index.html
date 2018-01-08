@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>the popov's</title>
+
+  <script type="text/javascript">var lampapi = '{{ url_for('lamp') }}'</script>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <script type="text/javascript" src="../static/js/nouislider.js"></script>
+  <script type="text/javascript" src="../static/js/wNumb.js"></script>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <link href="../static/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link type="text/css" href="../static/css/nouislider.css" rel="stylesheet">
+</head>
+<body>
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo">the popov's</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#templog">Temp Log</a></li>
+        <li><a href="#lamps">Control Lamp</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="#templog">Temp Log</a></li>
+        <li><a href="#lamps">Control Lamp</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <div class="row">
+          <h5 class="header col s12 light center-align" style="width: auto; text-shadow: 1px 1px 2px black; black">Some automation in order to make life easier</h5>
+        </div>
+        <br><br>
+
+      </div>
+    </div>
+    <div class="parallax"><img src="../static/images/background1.jpg" alt="Unsplashed background img 1"></div>
+  </div>
+
+  <!--   Icon Bar   -->
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">show_chart</i></h2>
+            <h5 class="center">Home temperature</h5>
+
+            <p class="light">You could track and mange heating devices in order to bring comfort to your family. As for now, you could track temperature with LittleBits. Here you could review last 10 temperature readings. Place LittleBits module in place you want to track and power it on.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">lightbulb_outline</i></h2>
+            <h5 class="center">Home lighting</h5>
+
+            <p class="light">Control home lighting with your favorite LIFX bulb. You could switch on/off, set brightness and color. Express yourself with the vivid color of LIFX and flip back to the perfect shade of white in an instant. Using your home wifi and smart phone, control your lighting to suit the mood or automate your home with schedules that suit your lifestyle. </p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">build</i></h2>
+            <h5 class="center">More functions</h5>
+
+            <p class="light">More functions to come if you will sponsor/contribute Popov's Family Portal development. Features backlog: Control water heater, Baby chair, IP camera streaming, etc.  </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="parallax-container valign-wrapper" id="templog">
+    <div class="section no-pad-bot" style="margin-top: 150px">
+      <div class="container">
+        <div class="row">
+          <h5 class="header col s12 light" style="width: auto; text-shadow: 1px 1px 2px black">Track temperature at home</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="../static/images/background2.jpg" alt="Unsplashed background img 2"></div>
+  </div>
+
+  <!--   Temp Charts   -->
+  <div class="container">
+    <div class="section">
+      <div class="row">
+
+        <div class="col s12 m12 hide-on-large-only" style="margin-top: 20px">
+          <div class="icon-block center-align">
+
+            <div style="width: 300px; margin-left: auto; margin-right: auto">
+              <div id="openweathermap-widget-5"></div>
+            </div>
+
+            <script src='//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js'></script>
+            <script>window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];
+            window.myWidgetParam.push({id: 5,
+                                       cityid: '703448',
+                                       appid: '5a0d9940663b72e6348b6ba13b204cd8',
+                                       units: 'metric',
+                                       containerid: 'openweathermap-widget-5',  });
+            (function() {
+
+                var script = document.createElement('script');
+                    script.async = true;
+                    script.charset = "utf-8";
+                    script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
+
+                var s = document.getElementsByTagName('script')[0];
+
+                s.parentNode.insertBefore(script, s);
+            })();
+            </script>
+
+          </div>
+      </div>
+
+        <div class="col s12 m12 hide-on-med-and-down" style="margin-top: 20px">
+          <div class="icon-block center-align">
+
+            <div style="width: 680px; margin-left: auto; margin-right: auto">
+              <div id="openweathermap-widget-21"></div>
+            </div>
+
+            <script src='//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js'></script>
+            <script>window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];
+            window.myWidgetParam.push({id: 21,
+                                       cityid: '703448',
+                                       appid: '5a0d9940663b72e6348b6ba13b204cd8',
+                                       units: 'metric',
+                                       containerid: 'openweathermap-widget-21',  });
+            (function() {
+
+                var script = document.createElement('script');
+                    script.async = true;
+                    script.charset = "utf-8";
+                    script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
+
+                var s = document.getElementsByTagName('script')[0];
+
+                s.parentNode.insertBefore(script, s);
+            })();
+            </script>
+
+          </div>
+        </div>
+
+        <div class="col s12 m12">
+          <div class="icon-block">
+
+
+            <script type="text/javascript">
+            google.charts.load('current', {'packages':['corechart']});
+
+            var options = {
+                height: 400,
+                animation:{duration: 500, easing: 'in', startup: 'true'},
+                vAxis: {minValue:10, maxValue:45},
+                hAxis: {direction:-1},
+                axisTitlesPosition: 'none',
+                chartArea:{width:'80%'},
+                colors:['teal','#004411'],
+                //explorer: {maxZoomIn: .5, zoomDelta: 1.1},
+                legend: 'none',
+            };
+
+            function drawChart() {
+                var data = google.visualization.arrayToDataTable({{ array | safe }})
+
+                var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+              chart.draw(data, options);
+            }
+
+            google.charts.setOnLoadCallback(drawChart);
+            </script>
+            <div class="card" id="chart_div" style="margin-top: 20px"></div>
+
+          </div>
+        </div>
+
+        <div class="col s12 m12">
+          <div class="icon-block">
+
+            <ul class="collapsible" data-collapsible="accordion">
+              <li>
+                <div class="collapsible-header">
+                  <i class="material-icons">storage</i>
+                  Table view
+                  <span class="badge">last 10</span></div>
+                  <div class="collapsible-body">
+                    <table class="highlight">
+                      <thead>
+                        <tr>
+                          <th>Temp</th>
+                          <th>Data</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for TmpLog in readings %}
+                      <tr>
+                        <td>{{ TmpLog.temp_value }}</td>
+                        <td>{{ TmpLog.temp_data }}</td>
+                      </tr>
+                      {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="parallax-container valign-wrapper" id="lamps">
+    <div class="section no-pad-bot" style="margin-top: 150px">
+      <div class="container">
+        <div class="row">
+          <h5 class="header light"; style="text-shadow: 1px 1px 2px black"><span>Control your lamps</span></h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="../static/images/background3.jpg" alt="Unsplashed background img 3"></div>
+  </div>
+
+  <!--   Lamp Butotns   -->
+  <div class="container">
+    <div class="section">
+      <div class="row">
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">colorize</i></h2>
+            <div class="center-align card" style="height: 256px">
+              <div class="sliders" id="red"></div>
+              <div class="sliders" id="green"></div>
+              <div class="sliders" id="blue"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">power_settings_new</i></h2>
+            <div class="valign-wrapper card" style="height: 256px">
+              <div class="switch" id="ebaniy">
+                <label>
+                  Off
+                  <input type="checkbox" onchange="sendrgb()" id="switch">
+                  <span class="lever"></span>
+                  On
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">brightness_6</i></h2>
+            <div class="valign-wrapper center-align card" style="height: 256px">
+              <div class="slider" id="slider-bright"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <footer class="page-footer teal">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s6">
+          <h5 class="white-text">Popov's Family Portal</h5>
+          <p class="grey-text text-lighten-4">We are a Family.</p>
+        </div>
+         <div class="col l6 s6 right-align">
+           <div>
+            <h5 class="white-text">Links</h5>
+            <ul>
+              <li><a class="white-text" href="#templog">Temp Log</a></li>
+              <li><a class="white-text" href="#lamps">Control Lamps</a></li>
+            </ul>
+           </div>
+         </div>
+      </div>
+    </div>
+
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">warehousman</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="text/javascript" src="../static/js/init.js"></script>
+</body>
+</html>
